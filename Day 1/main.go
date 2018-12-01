@@ -18,7 +18,7 @@ func main() {
 	r := bufio.NewScanner(b)
 
 	prevNumber := 0
-	var numbers []int
+	sum := 0
 
 	for r.Scan() {
 		path := r.Text()
@@ -28,14 +28,8 @@ func main() {
 
 		if nr >= prevNumber{
 			prevNumber = nr
-			numbers = append(numbers, nr)
+			sum += nr
 		}
-	}
-
-	sum := 0
-
-	for i := 0; i < len(numbers); i++{
-		sum += numbers[i]
 	}
 
 	fmt.Printf("Svar: %v\n",sum)
