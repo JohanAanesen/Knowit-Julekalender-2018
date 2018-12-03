@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
 
 var juletall = make(map[float64]bool)
@@ -42,7 +43,9 @@ func solveJuletall(digit float64, number float64){
 			}
 
 			if hitSameCount > 10000000{ //after 10 milion numbers where no one is new, we should ish have our answer
+				hitSameCount = 0
 				fmt.Printf("Answer: %d\n", len(juletall)) //wait a bit until it doesnt iterate anymore
+				os.Exit(0)
 			}
 			break
 		}else{
