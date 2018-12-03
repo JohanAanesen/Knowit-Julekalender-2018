@@ -23,32 +23,30 @@ func main() {
 	solveJuletall(float64(1), 1)
 }
 
-func solveJuletall(digit float64, number float64){
+func solveJuletall(digit float64, number float64) {
 
-
-	for _, val := range primtall{
+	for _, val := range primtall {
 		nr := number
 		nr *= float64(val)
-		if int(nr) > max{
+		if int(nr) > max {
 			break
 		}
 
-
-		if digit == 24{
-			if juletall[nr]{
+		if digit == 24 {
+			if juletall[nr] {
 				hitSameCount++
-			}else{
+			} else {
 				hitSameCount = 0
 				juletall[nr] = true
 			}
 
-			if hitSameCount > 10000000{ //after 10 milion numbers where no one is new, we should ish have our answer
+			if hitSameCount > 10000000 { //after 10 milion numbers where no one is new, we should ish have our answer
 				hitSameCount = 0
 				fmt.Printf("Answer: %d\n", len(juletall)) //wait a bit until it doesnt iterate anymore
 				os.Exit(0)
 			}
 			break
-		}else{
+		} else {
 			solveJuletall(digit+1, nr)
 		}
 
